@@ -61,11 +61,11 @@ global.stickauth = 'Tamaengs' // Opsional boleh ganti atau tidak
 global.nameown = 'Tamaengs' // Ganti jadi nama kalian
 global.waown = 'wa.me/6282210819939' // ganti nomor tanpa menghilangkan wa.me/
 global.mail = 'tam@jawanich.my.id' // boleh taruh email kalian
-global.fb = '' // boleh taruh link fb kalian
+global.fb = 'https://facebook.com/maximusstoreindonesia' // boleh taruh link fb kalian
 global.ig = 'https://instagram.com/tams.aspx' // boleh taruh link ig kalian
-global.gcbot = '' // boleh taruh link group kalian
-global.qris = '' // Wajib isi untuk pembayaran. isi dengan qris
-global.vn = '' // Allmenu Voice
+global.gcbot = 'https://whatsapp.com/channel/0029VaL28ZqFSAtCdSU5EX0M' // boleh taruh link group kalian
+global.qris = 'https://telegra.ph/file/f11ccd2ca8a5136aacfb3.jpg' // Wajib isi untuk pembayaran. isi dengan qris
+global.vn = 'https://github.com/XM4ZE/DATABASE/raw/master/wallpaper/KARA.mp3?raw=true' // Allmenu Voice
 
 
 
