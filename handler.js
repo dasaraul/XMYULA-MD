@@ -1529,7 +1529,7 @@ global.dfail = (type, m, conn) => {
 			externalAdReply: {
 				title: global.info.namebot + ` © 2024`,
 				body: 'Powered By Tamaengs',
-				thumbnailUrl: 'https://github.com/dasaraul/XMYULA-MD/blob/master/media/banner%20tamaengs.png?raw=true',
+				thumbnailUrl: 'https://github.com/dasaraul/XMYULA-MD/blob/master/media/banner%20tamaengs.jpg?raw=true',
 				sourceUrl: "",
 				mediaType: 1,
 				renderLargerThumbnail: true
