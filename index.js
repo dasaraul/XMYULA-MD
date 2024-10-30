@@ -3,4 +3,41 @@
  * AUTHOR: XM4ZE
  */
 
-const _0x46812d=_0x5213;(function(_0x392e08,_0x21efc8){const _0xb74a9d=_0x5213,_0x5baa66=_0x392e08();while(!![]){try{const _0x176952=-parseInt(_0xb74a9d(0x1ff))/0x1+-parseInt(_0xb74a9d(0x20b))/0x2*(-parseInt(_0xb74a9d(0x1f9))/0x3)+-parseInt(_0xb74a9d(0x206))/0x4*(parseInt(_0xb74a9d(0x208))/0x5)+parseInt(_0xb74a9d(0x1f3))/0x6*(parseInt(_0xb74a9d(0x1ee))/0x7)+-parseInt(_0xb74a9d(0x209))/0x8*(parseInt(_0xb74a9d(0x1f2))/0x9)+parseInt(_0xb74a9d(0x201))/0xa+-parseInt(_0xb74a9d(0x1ed))/0xb;if(_0x176952===_0x21efc8)break;else _0x5baa66['push'](_0x5baa66['shift']());}catch(_0xe27bf1){_0x5baa66['push'](_0x5baa66['shift']());}}}(_0x1878,0x2a43b));import{spawn}from'child_process';function _0x5213(_0x4923b5,_0x4e0112){const _0x187860=_0x1878();return _0x5213=function(_0x52130e,_0x1de5cc){_0x52130e=_0x52130e-0x1ed;let _0x323d50=_0x187860[_0x52130e];return _0x323d50;},_0x5213(_0x4923b5,_0x4e0112);}import _0x14557a from'path';import{clear}from'console';import{promisify}from'util';function _0x1878(){const _0x152c8c=['argv','7458ZknMHj','center','say','green','exit','\x0a\x0aAssisten-YuLa\x20Bot\x0a','300545vUSxsX','error','3159490HIMaVD','Simple\x20Whatsapp\x20Bot\x20Use\x20QR\x20Code\x20&\x20Pairing\x20Code\x0aWith\x20Baileys\x20Library\x0a\x0aInstagram:\x20https://instagram.com/maximusstore.id\x0aFacebook:\x20https://facebook.com/maximusstoreindonesia\x0aWhatsApp:\x20wa.me/6281283516246\x0a\x0a','slice','url','bold','2804FEnHTp','\x0aTerima\x20kasih\x20telah\x20menggunakan\x20sc\x20ini.','985ctPioE','2117872KPsQXD','log','214ooYrOi','474067VWWNQz','7YYYWAd','main.js','inherit','blue','9GpqvSO','2025822yqDkSU','clear','red','❎\x20Exited\x20with\x20code:','console'];_0x1878=function(){return _0x152c8c;};return _0x1878();}import{fileURLToPath}from'url';import{join,dirname}from'path';const sleep=_0x39400f=>{return new Promise(_0x1bb57a=>setTimeout(_0x1bb57a,_0x39400f));};import _0x3d91e0 from'cfonts';import _0xdc2066 from'chalk';console[_0x46812d(0x1f4)]();const __dirname=dirname(fileURLToPath(import.meta[_0x46812d(0x204)])),start=async()=>{const _0x7106c1=_0x46812d,_0x293610=[_0x14557a['join'](__dirname,_0x7106c1(0x1ef)),...process['argv'][_0x7106c1(0x203)](0x2)],_0x19ae43=spawn(process[_0x7106c1(0x1f8)][0x0],_0x293610,{'stdio':[_0x7106c1(0x1f0),'inherit',_0x7106c1(0x1f0),'ipc']});_0x19ae43['on'](_0x7106c1(0x1fd),_0x38d32d=>{const _0x284958=_0x7106c1;console[_0x284958(0x200)](_0x284958(0x1f6),_0x38d32d);if(_0x38d32d==='.'||_0x38d32d===0x1||_0x38d32d===0x0)start();});};await sleep(0x7d0),_0x3d91e0['say'](_0x46812d(0x1fe),{'font':'tiny','align':'center','gradient':[_0x46812d(0x1f5),_0x46812d(0x1f1)]}),_0x3d91e0[_0x46812d(0x1fb)](_0x46812d(0x202),{'font':_0x46812d(0x1f7),'align':_0x46812d(0x1fa),'colors':['blue']}),console[_0x46812d(0x20a)](_0xdc2066[_0x46812d(0x205)][_0x46812d(0x1fc)](_0x46812d(0x207))),start();
+import { spawn } from 'child_process';
+import _0x14557a from 'path';
+import 'console';
+import 'util';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const sleep = _0x39400f => {
+  return new Promise(_0x1bb57a => setTimeout(_0x1bb57a, _0x39400f));
+};
+import _0x3d91e0 from 'cfonts';
+import _0xdc2066 from 'chalk';
+console.clear();
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const start = async () => {
+  const _0x293610 = [_0x14557a.join(__dirname, "main.js"), ...process.argv.slice(0x2)];
+  const _0x19ae43 = spawn(process.argv[0x0], _0x293610, {
+    'stdio': ["inherit", 'inherit', "inherit", 'ipc']
+  });
+  _0x19ae43.on("exit", _0x38d32d => {
+    console.error("❎ Exited with code:", _0x38d32d);
+    if (_0x38d32d === '.' || _0x38d32d === 0x1 || _0x38d32d === 0x0) {
+      start();
+    }
+  });
+};
+await sleep(0x7d0);
+_0x3d91e0.say("\n\nAssisten-YuLa Bot\n", {
+  'font': 'tiny',
+  'align': 'center',
+  'gradient': ["red", "blue"]
+});
+_0x3d91e0.say("Simple Whatsapp Bot Use QR Code & Pairing Code\nWith Baileys Library\n\nInstagram: https://instagram.com/maximusstore.id\nFacebook: https://facebook.com/maximusstoreindonesia\nWhatsApp: wa.me/6281283516246\n\n", {
+  'font': "console",
+  'align': "center",
+  'colors': ['blue']
+});
+console.log(_0xdc2066.bold.green("\nTerima kasih telah menggunakan sc ini."));
+start();

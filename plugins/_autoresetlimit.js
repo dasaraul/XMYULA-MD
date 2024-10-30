@@ -18,9 +18,9 @@ export async function all(m) {
 				"message": {
 					"groupInviteMessage": {
 						"groupJid": "120363158076828888@g.us",
-						"inviteCode": "XMYULA-MD",
-						"groupName": "XMYULA-MD Powered by XM4ZE",
-						"caption": "https://github.com/XM4ZE/XMYULA-MD",
+						"inviteCode": "Tamaengs Bot",
+						"groupName": "XMYULA-MD Recoded by Tamaengs",
+						"caption": "Source: https://github.com/XM4ZE/XMYULA-MD",
 						'jpegThumbnail': ""
 					}
 				}

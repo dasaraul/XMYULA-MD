@@ -1528,8 +1528,8 @@ global.dfail = (type, m, conn) => {
 			},
 			externalAdReply: {
 				title: global.info.namebot + ` © 2024`,
-				body: 'Powered By XM4ZE',
-				thumbnailUrl: 'https://telegra.ph/file/8ddbb1905c4f3357bf82c.jpg',
+				body: 'Powered By Tamaengs',
+				thumbnailUrl: 'https://github.com/dasaraul/XMYULA-MD/blob/master/media/banner%20tamaengs.png?raw=true',
 				sourceUrl: "",
 				mediaType: 1,
 				renderLargerThumbnail: true

@@ -31,8 +31,8 @@ global.info = {
 	nomorown: '6282210819939',
 	namebot: 'Tamaengs Bot',
 	nameown: 'Tamaengs',
-	channel: '120363241570452835@newsletter',
-	namechannel: 'XM4ZE | Whatsapp Bots'
+	channel: '120363357904156942@newsletter',
+	namechannel: 'Tamaengs | Whatsapp Bots'
 }
 
 

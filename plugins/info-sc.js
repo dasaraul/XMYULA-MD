@@ -4,7 +4,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 	try {
    let xm4ze = await( await fetch(xmenus)).json()
    let thum = xm4ze[Math.floor(Math.random() * xm4ze.length)]
-   let maximus = `*XMYULA-MD BY XM4ZE*
+   let maximus = `*XMYULA-MD RECODED BY XM4ZE*
 
 > https://github.com/XM4ZE/XMYULA-MD
 
