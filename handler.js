@@ -1511,7 +1511,7 @@ global.dfail = (type, m, conn) => {
 		nsfw: 'This Command Has Not Been Activated In This Group.\n\n> Enable This Feature By Writing *.enable nsfw*',
 		rpg: 'This Command Has Not Been Activated In This Group.\n\n> Enable This Feature By Writing *.enable rpg*',
 		game: 'This Command Has Not Been Activated In This Group.\n\n> Enable This Feature By Writing *.enable game*',
-		xmaze: 'This group does not allow this feature to be used. please join this group:\nhttps://chat.whatsapp.com/FJRtTzRKxP8A2wT6fcCW3s\n\n disable this feature by writing .enable allfitur',
+		xmaze: 'This group does not allow this feature to be used. please join this group:\nhttps://chat.whatsapp.com/JYSgFhe0VasKc0LhvZikrk\n\n disable this feature by writing .enable allfitur',
 		restrict: '*FEATURES TURNED OFF BY OWNERS*',
 		unreg: '*Please register first by writing \`#register name.age\`\n* Once you are registered, then you can use this command.\n\n*Registration example:*\n\n\`#register Mulyono.45\`\n\n*Notes:*\n* Make sure you write your name and age correctly.\n* You only need to register once.'
 	} [type]
