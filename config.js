@@ -62,15 +62,15 @@ global.nameown = 'Tamaengs' // Ganti jadi nama kalian
 global.waown = 'wa.me/6282210819939' // ganti nomor tanpa menghilangkan wa.me/
 global.mail = 'tam@jawanich.my.id' // boleh taruh email kalian
 global.fb = 'https://facebook.com/maximusstoreindonesia' // boleh taruh link fb kalian
-global.ig = 'https://instagram.com/tams.aspx' // boleh taruh link ig kalian
-global.gcbot = 'https://chat.whatsapp.com/JYSgFhe0VasKc0LhvZikrk' // boleh taruh link group kalian
-global.qris = 'https://api.betabotz.eu.org/api/tools/get-upload?id=f/4azn3ib.jpg' // Wajib isi untuk pembayaran. isi dengan qris
-global.vn = 'https://github.com/dasaraul/XMYULA-MD/raw/refs/heads/master/media/apt.mp3' // Allmenu Voice
+global.ig = 'https://instagram.com/maximusstore.id' // boleh taruh link ig kalian
+global.gcbot = 'https://whatsapp.com/channel/0029VaL28ZqFSAtCdSU5EX0M' // boleh taruh link group kalian
+global.qris = 'https://telegra.ph/file/f11ccd2ca8a5136aacfb3.jpg' // Wajib isi untuk pembayaran. isi dengan qris
+global.vn = 'https://github.com/XM4ZE/DATABASE/raw/master/wallpaper/KARA.mp3?raw=true' // Allmenu Voice
 
 
 
 /*=========== THUMBNAIL ===========*/
-global.thumvid = 'https://github.com/dasaraul/XMYULA-MD/raw/refs/heads/master/media/vid.mp4' // Allmenu Video thumbnail
+global.thumvid = 'https://github.com/XM4ZE/DATABASE/raw/master/wallpaper/Vid_20240220_073653.mp4?raw=true' // Allmenu Video thumbnail
 global.welcome = '' // [OPSIONAL] isi dengan link thumbnail welcome kalian
 global.leave = '' // [OPSIONAL] isi dengan link thumbnail leave kalian
 global.maximus = '' // [OPSIONAL] isi dengan link thumbnail kalian. link ini akan muncul di semua menu dan taruh di tengah-tengah simbol itu

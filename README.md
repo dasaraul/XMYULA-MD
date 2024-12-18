@@ -6,7 +6,8 @@
 
 **Information:**
 - Have used multi auth sessions 
-- Using Qrcode on the terminal or using pairing code
+- Using the latest baileys
+- Update Information [`Whatsapp Newsletter`](https://whatsapp.com/channel/0029VaL28ZqFSAtCdSU5EX0M)
 
 **Run script:**
 - Use QR Code: ```node index.js```
@@ -19,7 +20,7 @@
 
 - Report/Ask [`My Whatsapp`](https://wa.me/6281283516246)
 
-- WhatsApp Group[`Here`](https://chat.whatsapp.com/JYSgFhe0VasKc0LhvZikrk)
+- WhatsApp Group[`Here`](https://chat.whatsapp.com/FJRtTzRKxP8A2wT6fcCW3s)
 
 - WhatsApp Channel [`Here`](https://whatsapp.com/channel/0029VaL28ZqFSAtCdSU5EX0M)
 
@@ -27,33 +28,21 @@
 
 ## Script features
 
-| features |
-|----------|
-| Ai Menu |
-| Anime Menu |
-| Download Menu |
-| Fun Menu |
-| Game Menu |
-| Group Menu |
-| info Menu |
-| Internet Menu |
-| Islamic Menu |
-| Main Menu |
-| Maker Menu |
-| Premium Menu |
-| Owner Menu |
-| Quotes Menu |
-| Rpg Menu |
-| Stiker Menu |
-| Tools Menu |
+|| features ||
+|----------|----------|----------|
+| Ai Menu | Anime Menu | Download Menu |
+| Fun Menu | Game Menu | Group Menu |
+| info Menu | Internet Menu | Islamic Menu |
+| Main Menu | Maker Menu | Premium Menu |
+| Owner Menu | Quotes Menu | Rpg Menu |
+| Stiker Menu | Tools Menu |
 
 ## Price Script No Encryption 
 
-| Name | Index.js | Main.js | Plugins github | Plugins Scraper | Payment getway|harga |
-|-------------|-----|------|-----|-----|-----|-----|
-| Free Script | ❌ | ❌ | ✔️ | ❌ | ❌| Free |
-| Script V1 | ✔️ | ✔️ | ✔️ | ❌ | ✔️ | 150.000 IDR |
-| Script V2 | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ | 420.000 IDR |
+| Name | Index.js | Main.js | Payment getway| Price |
+|-------------|-----|------|-----|-----|
+| Free Script | ❌ | ❌ | ❌| 0 IDR |
+| Paid Script | ✔️ | ✔️ | ✔️ | 150.000 IDR |
 
 ## Change NAME, NUMBER Owner and add THUMBNAILS
 
@@ -121,7 +110,7 @@ global.maximus = '' // [OPSIONAL] isi dengan link thumbnail kalian. link ini aka
   
 - Botcahx API [`Website`](https://api.botcahx.eu.org) ```Must Use```
 
-After registering and getting an apikey, you can paste your apikey in config.js 
+After registering and getting an apikey, you can paste your apikey in ```config.js```
 
 ```javascript
 
@@ -147,13 +136,12 @@ global.APIKeys = {
 
 
 
-
 ## FOR WINDOWS/VPS/RDP USERS
 
 * Download & Install Git [`Click here`](https://git-scm.com/downloads)
-* Download & Install NodeJS [`Click here`](https://nodejs.org/en/download) (**Don't Use Nodejs Version 20**)
-* Download & Install FFmpeg [`Click here`](https://ffmpeg.org/download.html) (**Don't Forget to Add FFmpeg to the PATH environment variable**)
+* Download & Install NodeJS [`Click here`](https://nodejs.org/en/download)
 * Download & Install ImageMagick [`Click here`](https://imagemagick.org/script/download.php)
+* Download & Install FFmpeg [`Click here`](https://ffmpeg.org/download.html) (**Don't Forget to Add FFmpeg to the PATH environment variable**)
 
 ```bash
 git clone https://github.com/XM4ZE/XMYULA-MD
@@ -163,6 +151,21 @@ npm start
 ```
 
 
+## MY GROUPS & NUMBERS
+
+- Report/Ask [`My Whatsapp`](https://wa.me/6281283516246)
+
+- WhatsApp Group[`Here`](https://chat.whatsapp.com/FJRtTzRKxP8A2wT6fcCW3s)
+
+- Buy me a coffee [`Buy`](https://telegra.ph/file/f11ccd2ca8a5136aacfb3.jpg)
+
+## SCAMMER NUMBER FREE
+
+- Whatsapp1: ```6285183396693``` Anap
+- Whatsapp2: ```6285183397447``` Anap
+- No Dana: ```088212898608```
+
+```SC INI DI JUAL 30K JIR. PADAHAL FREE 😂```
 
 
 ##### All Contributors
