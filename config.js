@@ -5,8 +5,8 @@ import { fileURLToPath } from 'url'
 
 /*========= GLOBAL APIKEY =========*/
 // ISI APIKEY KALIAN DI BAGIAN 'ENTER YOUR APIKEY' SIMBOL JANGAN DI HAPUS
-global.btc = 'Enter your apikey' // apikey Botchax
-global.lann = 'Enter your apikey' // apikey Beta
+global.btc = 'afXvy4Tz' // apikey Botchax
+global.lann = 'RYSKcEO6' // apikey Beta
 
 
 
@@ -18,8 +18,8 @@ global.APIs = {
 } 
 
 global.APIKeys = {
-  'https://api.betabotz.eu.org': 'Enter your apikey',
-  'https://api.botcahx.eu.org': 'Enter your apikey'
+  'https://api.betabotz.eu.org': 'RYSKcEO6',
+  'https://api.botcahx.eu.org': 'afXvy4Tz'
 }
 
 
@@ -27,50 +27,50 @@ global.APIKeys = {
 /*============ NOMOR ============*/
 // BOLEH DI EDIT ASALKAN JANGAN ADA SIMBOL YANG DI HAPUS
 global.info = {
-	nomorbot: '62882257504889',
-	nomorown: '6281283516246',
-	namebot: 'Assisten YuLa',
-	nameown: 'Maximus Store',
-	channel: '120363241570452835@newsletter',
-	namechannel: 'XM4ZE | Whatsapp Bots'
+	nomorbot: '6285184550704',
+	nomorown: '6282210819939',
+	namebot: 'Tamaengs Bot',
+	nameown: 'Tamaengs',
+	channel: '120363357904156942@g.us',
+	namechannel: 'Tamaengs | Whatsapp Bots'
 }
 
 
 
 /*============ OWNER ============*/
 // BOLEH DI EDIT ASALKAN JANGAN ADA SIMBOL YANG DI HAPUS
-global.owner = ['6281283516246'] // Ganti pakai nomor kalian
-global.xmaze = ['6281283516246'] // Ganti pakai nomor kalian
+global.owner = ['6282210819939'] // Ganti pakai nomor kalian
+global.xmaze = ['6282210819939'] // Ganti pakai nomor kalian
 
-global.mods = ['6288225750488'] // Opsional boleh ganti atau tidak 
-global.prems = ['6281283516246', '6288225750488'] // Opsional boleh ganti atau tidak 
+global.mods = ['6282210819939'] // Opsional boleh ganti atau tidak 
+global.prems = ['6282210819939', '6285184550704'] // Opsional boleh ganti atau tidak 
 
 
 
 /*=========== WATERMARK ===========*/
 // BOLEH DI EDIT ASALKAN JANGAN ADA SIMBOL YANG DI HAPUS
-global.wm = 'XMYULA' // Opsional boleh ganti atau tidak 
-global.author = 'XM4ZE' // Opsional boleh ganti atau tidak 
-global.stickpack = 'XMYULA' // Opsional boleh ganti atau tidak 
-global.stickauth = 'XM4ZE' // Opsional boleh ganti atau tidak 
+global.wm = 'Tamaengs' // Opsional boleh ganti atau tidak 
+global.author = 'Tama' // Opsional boleh ganti atau tidak 
+global.stickpack = 'Tams' // Opsional boleh ganti atau tidak 
+global.stickauth = 'Tamaengs' // Opsional boleh ganti atau tidak 
 
 
 
 /*=========== TEXT & IMAGE ===========*/
 // BOLEH DI EDIT ASALKAN JANGAN ADA SIMBOL YANG DI HAPUS
-global.nameown = 'Maximus Store' // Ganti jadi nama kalian
-global.waown = 'wa.me/6281283516246' // ganti nomor tanpa menghilangkan wa.me/
-global.mail = 'maximusstoreindonesia@gmail.com' // boleh taruh email kalian
+global.nameown = 'Tamaengs' // Ganti jadi nama kalian
+global.waown = 'wa.me/6282210819939' // ganti nomor tanpa menghilangkan wa.me/
+global.mail = 'tam@jawanich.my.id' // boleh taruh email kalian
 global.fb = 'https://facebook.com/maximusstoreindonesia' // boleh taruh link fb kalian
-global.ig = 'https://instagram.com/maximusstore.id' // boleh taruh link ig kalian
-global.gcbot = 'https://whatsapp.com/channel/0029VaL28ZqFSAtCdSU5EX0M' // boleh taruh link group kalian
-global.qris = 'https://telegra.ph/file/f11ccd2ca8a5136aacfb3.jpg' // Wajib isi untuk pembayaran. isi dengan qris
-global.vn = 'https://github.com/XM4ZE/DATABASE/raw/master/wallpaper/KARA.mp3?raw=true' // Allmenu Voice
+global.ig = 'https://instagram.com/tams.aspx' // boleh taruh link ig kalian
+global.gcbot = 'https://chat.whatsapp.com/JYSgFhe0VasKc0LhvZikrk' // boleh taruh link group kalian
+global.qris = 'https://api.betabotz.eu.org/api/tools/get-upload?id=f/4azn3ib.jpg' // Wajib isi untuk pembayaran. isi dengan qris
+global.vn = 'hhttps://github.com/dasaraul/XMYULA-MD/raw/refs/heads/master/media/ROSE%CC%81%20&%20Bruno%20Mars%20-%20APT.%20(Official%20Music%20Video).mp3' // Allmenu Voice
 
 
 
 /*=========== THUMBNAIL ===========*/
-global.thumvid = 'https://github.com/XM4ZE/DATABASE/raw/master/wallpaper/Vid_20240220_073653.mp4?raw=true' // Allmenu Video thumbnail
+global.thumvid = 'https://github.com/dasaraul/XMYULA-MD/raw/refs/heads/master/media/Espresso%20-%20Loving%20Yamada%20at%20Lv999%20%5BEdit-AMV%5D%20(+Free%20Project%20File).mp4' // Allmenu Video thumbnail
 global.welcome = '' // [OPSIONAL] isi dengan link thumbnail welcome kalian
 global.leave = '' // [OPSIONAL] isi dengan link thumbnail leave kalian
 global.maximus = '' // [OPSIONAL] isi dengan link thumbnail kalian. link ini akan muncul di semua menu dan taruh di tengah-tengah simbol itu
