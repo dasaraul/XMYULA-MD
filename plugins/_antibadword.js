@@ -1,34 +1,19 @@
 let badwordRegex = /anj(k|g)|ajn?(g|k)|a?njin(g|k)|bajingan|b(a?n)?gsa?t|ko?nto?l|me?me?(k|q)|pe?pe?(k|q)|meki|titi(t|d)|pe?ler|tetek|toket|ngewe|go?blo?k|to?lo?l|idiot|(k|ng)e?nto?(t|d)|jembut|bego|dajj?al|janc(u|o)k|pantek|puki ?(mak)?|kimak|kampang|lonte|col(i|mek?)|pelacur|henceu?t|nigga|fuck|dick|bitch|tits|bastard|asshole/i // tambahin sendiri
 
-// Fungsi untuk mendeteksi tipe media dari URL
-function getMediaType(url) {
-    const videoExtensions = ['.mp4', '.mov', '.avi', '.webm']
-    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp']
-    
-    const extension = url.toLowerCase().split('.').pop()
-    
-    if (videoExtensions.includes('.' + extension)) return 'video'
-    if (imageExtensions.includes('.' + extension)) return 'image'
-    return null
-}
-
-// Fungsi untuk mengirim media dari URL
-async function sendMediaFromUrl(conn, jid, url, caption = '') {
+// Fungsi untuk mengirim media dari file lokal
+async function sendLocalMedia(conn, jid, filePath, caption = '') {
     try {
-        const mediaType = getMediaType(url)
-        if (!mediaType) throw new Error('Unsupported media type')
-        
-        const buffer = await fetch(url).then(res => res.buffer())
+        const mediaType = filePath.toLowerCase().endsWith('.mp4') ? 'video' : 'image'
         
         if (mediaType === 'video') {
             return await conn.sendMessage(jid, { 
-                video: buffer, 
+                video: { url: filePath }, 
                 caption: caption,
-                gifPlayback: url.toLowerCase().endsWith('.gif') // Auto convert gif to video
+                gifPlayback: false
             })
-        } else { // image
+        } else {
             return await conn.sendMessage(jid, { 
-                image: buffer, 
+                image: { url: filePath }, 
                 caption: caption 
             })
         }
@@ -49,8 +34,8 @@ export async function before(m, { isBotAdmin }) {
     if (chat.antiBadword && isBadword && m.isGroup) {
         user.warn += 1
         
-        // Contoh: https://raw.githubusercontent.com/username/repo/branch/path/to/image.jpg
-        const warningMediaUrl = 'https://github.com/dasaraul/XMYULA-MD/raw/refs/heads/master/media/Sagiri%20Baka%20EAR%20RAPE%20100%25%20Legit.mp4'
+        // Menggunakan file lokal
+        const mediaPath = '/media/sagiri.mp4'
         
         const warningMessage = `${user.warning >= 5 ? '*📮 Warning Kamu Sudah Mencapai 5 Maka Kamu Akan Dikick!*' : '*📮 Kata Kata Toxic Terdeteksi*'}
 
@@ -63,7 +48,7 @@ YuLa Memberi Peringatan: ${user.warn} / 5
 Tch... Tamaengs-san ga kou iu nara, kakugo shiro yo... Damare! Nido to waruguchi wo iu na!!!`
 
         // Kirim pesan warning dengan media
-        await sendMediaFromUrl(conn, m.chat, warningMediaUrl, warningMessage)
+        await sendLocalMedia(conn, m.chat, mediaPath, warningMessage)
         
         if (user.warn >= 5) {
             user.warn = 0
