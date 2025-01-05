@@ -1,11 +1,5 @@
-/*
- * XMYULA-MD BY XM4ZE
- * github.com/XMAZE/XMYULA-MD
- * Channel WhatsApp: https://whatsapp.com/channel/0029VaL28ZqFSAtCdSU5EX0M
- */
-
 let handler = async(m, { conn, text, usedPrefix, command}) => {
-    if (!text) return conn.reply(m.chat, `*— YULA JOIN GROUP*\n\n*7 Day join the group*\n- Harga: Rp. 5.000 IDR\n- ID Pesanan: G7\n\n*30 Day join the group*\n- Harga: Rp. 10.000 IDR\n- ID Pesanan: G30\n\n*60 Day join the group*\n- Harga: Rp. 20.000 IDR\n- ID Pesanan: G60\n\n\n*— PREMIUM USER*\n\n*3 Day premium*\n- Harga: Rp. 2.000 IDR\n- ID Pesanan: 3day\n\n*7 Day premium*\n- Harga: Rp. 5.000 IDR\n- ID Pesanan: 7day\n\n*30 Day premium*\n- Harga: Rp. 10.000 IDR\n- ID Pesanan: 30day\n\n*60 Day premium*\n- Harga: Rp. 20.000 IDR\n- ID Pesanan: 60day\n\n\n*Example:* ${usedPrefix + command} <ID Pesanan>\n*Example:* ${usedPrefix + command} 30day`, m)
+    if (!text) return conn.reply(m.chat, `*— Tamaengs JOIN GROUP*\n\n*7 Day join the group*\n- Harga: Rp. 5.000 IDR\n- ID Pesanan: G7\n\n*30 Day join the group*\n- Harga: Rp. 10.000 IDR\n- ID Pesanan: G30\n\n*60 Day join the group*\n- Harga: Rp. 20.000 IDR\n- ID Pesanan: G60\n\n\n*— PREMIUM USER*\n\n*3 Day premium*\n- Harga: Rp. 2.000 IDR\n- ID Pesanan: 3day\n\n*7 Day premium*\n- Harga: Rp. 5.000 IDR\n- ID Pesanan: 7day\n\n*30 Day premium*\n- Harga: Rp. 10.000 IDR\n- ID Pesanan: 30day\n\n*60 Day premium*\n- Harga: Rp. 20.000 IDR\n- ID Pesanan: 60day\n\n\n*Example:* ${usedPrefix + command} <ID Pesanan>\n*Example:* ${usedPrefix + command} 30day`, m)
     let orderID;
 
   switch(text) {
@@ -33,7 +27,7 @@ let handler = async(m, { conn, text, usedPrefix, command}) => {
       default:
       throw `*ID Pesanan* yang dipilih tidak tersedia, Silahkan pilih *ID Pesanan* di bawah ini.
       
-*— YULA JOIN GROUP*
+*— Tamaengs JOIN GROUP*
 
 *7 Day join the group*
 - Harga: Rp. 5.000 IDR
@@ -67,7 +61,7 @@ let handler = async(m, { conn, text, usedPrefix, command}) => {
 - ID Pesanan: 60day
 `;
   };
-    let maximus = `*X M Y U L A  O R D E R*\n\n*• Status:* _🟡 Pending_\n*• ID Pembelian:* ${text}\n*• Nominal:* ${orderID}\n*• Payment:* QRIS\n\n\n*TAHAP-TAHAP Pembayaran*\n*1.* Silahkan SCAN QRIS ini dengan M-Banking/E-Wallet kamu\n*2.* Masukan Nominal: ${orderID}\n*3.* Silahkan Kirim bukti pembayaran ke nomor ini wa.me/${global.info.nomorown}`
+    let maximus = `*T A M A E N G S  O R D E R*\n\n*• Status:* _🟡 Pending_\n*• ID Pembelian:* ${text}\n*• Nominal:* ${orderID}\n*• Payment:* QRIS\n\n\n*TAHAP-TAHAP Pembayaran*\n*1.* Silahkan SCAN QRIS ini dengan M-Banking/E-Wallet kamu\n*2.* Masukan Nominal: ${orderID}\n*3.* Silahkan Kirim bukti pembayaran ke nomor ini wa.me/${global.info.nomorown}`
     conn.sendMessage(m.sender, { image: { url: global.qris }, caption: maximus }, {})
     if (m.chat.includes('@g.us')) {
     conn.reply(m.chat, '✔️ *PESANANMU TELAH DI BUAT*\n\nSaya telah mengirim pembayarannya melalu private chat silahkan di baca dan ikuti tahap-tahap pembayaran. Terimakasih', m)
@@ -79,9 +73,3 @@ handler.tags = ['info']
 handler.command =  /(order|sewa|premium)/i
 
 export default handler
-
-/*
- * XMYULA-MD BY XM4ZE
- * github.com/XMAZE/XMYULA-MD
- * Channel WhatsApp: https://whatsapp.com/channel/0029VaL28ZqFSAtCdSU5EX0M
- */

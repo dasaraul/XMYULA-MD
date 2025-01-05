@@ -89,7 +89,7 @@ global.mail = 'maximusstoreindonesia@gmail.com' // boleh taruh email kalian
 global.fb = 'https://facebook.com/maximusstoreindonesia' // boleh taruh link fb kalian
 global.ig = 'https://instagram.com/maximusstore.id' // boleh taruh link ig kalian
 global.gcbot = 'https://whatsapp.com/channel/0029VaL28ZqFSAtCdSU5EX0M' // boleh taruh link group kalian
-global.qris = 'https://telegra.ph/file/f11ccd2ca8a5136aacfb3.jpg' // Wajib isi untuk pembayaran. isi dengan qris
+global.qris = 'https://github.com/dasaraul/XMYULA-MD/blob/master/media/qris.jpg?raw=true' // Wajib isi untuk pembayaran. isi dengan qris
 global.vn = 'https://github.com/XM4ZE/DATABASE/raw/master/wallpaper/KARA.mp3?raw=true' // Allmenu Voice
 
 
