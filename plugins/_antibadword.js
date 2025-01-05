@@ -19,7 +19,7 @@ async function sendLocalMedia(conn, jid, filePath, caption = '') {
         }
     } catch (e) {
         console.error('Error sending media:', e)
-        // Jika gagal mengirim media, kirim pesan text saja
+        // Jika gagal mengirim media, kirim pesan text saj
         await conn.sendMessage(jid, { text: caption })
         return null
     }
