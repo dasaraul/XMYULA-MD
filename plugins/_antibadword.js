@@ -49,7 +49,6 @@ export async function before(m, { isBotAdmin }) {
     if (chat.antiBadword && isBadword && m.isGroup) {
         user.warn += 1
         
-        // URL media dari GitHub raw atau sumber lain
         // Contoh: https://raw.githubusercontent.com/username/repo/branch/path/to/image.jpg
         const warningMediaUrl = 'https://github.com/dasaraul/XMYULA-MD/raw/refs/heads/master/media/Sagiri%20Baka%20EAR%20RAPE%20100%25%20Legit.mp4'
         
