@@ -210,7 +210,7 @@ conn.sendMessage(m.chat, {
   }
 }
 handler.help = ['islamicmenu']
-handler.tags = ['maximus']
+handler.tags = ['tamas']
 handler.command = /^(islamicmenu|islamichelp)$/i
 handler.register = true;
 

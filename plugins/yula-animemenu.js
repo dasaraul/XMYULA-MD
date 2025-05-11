@@ -210,7 +210,7 @@ let tags = {
   }
 }
 handler.help = ['animemenu']
-handler.tags = ['maximus']
+handler.tags = ['tamas']
 handler.command = /^(animemenu|animehelp)$/i
 handler.register = true;
 

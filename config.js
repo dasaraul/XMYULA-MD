@@ -3,11 +3,11 @@ import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 
 /*============== GLOBAL APIKEY ==============*/
-global.btc = 'API_KEY_BTC'
+global.btc = 'yw8NJjHo'
 
 /*============== NOMOR ==============*/
 global.info = {
-	nomorbot: '6282210819939',
+	nomorbot: '6285184550704',
 	nomorown: '6282210819939',
 	namebot: 'Tamaengs Bot',
 	nameown: 'Tamaengs',
@@ -16,8 +16,8 @@ global.info = {
 }
 
 /*============== OWNER ==============*/
-global.owner = [global.info.nomorown, '6288225750488']
-global.xmaze = [global.info.nomorown, '6288225750488']
+global.owner = [global.info.nomorown, '6282210819939']
+global.xmaze = [global.info.nomorown, '6282210819939']
 global.mods = []
 global.prems = []
 
@@ -49,7 +49,7 @@ global.waown = 'wa.me/6282210819939'
 global.mail = 'tam@jawanich.my.id'
 // global.fb = 'https://facebook.com/maximusstoreindonesia'
 // global.ig = 'https://instagram.com/maximusstore.id'
-global.gcbot = 'https://whatsapp.com/channel/0029VbAV8INCRs1hw2w0pK0d'
+global.gcbot = 'https://chat.whatsapp.com/GJkdBROYGEIFgIMl6FRUIY'
 global.wait = '*Starting Processing . . .*'
 global.eror = '*Failed to process . . .*\n\nLapor Owner dengan menulis \`.lapor\`\nReport Owner by writing \`.report\`'
 global.qris = 'https://github.com/dasaraul/XMYULA-MD/blob/master/qris.jpg?raw=true'

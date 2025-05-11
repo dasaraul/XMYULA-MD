@@ -215,7 +215,7 @@ conn.sendMessage(m.chat, {
   }
 }
 handler.help = ['gamemenu']
-handler.tags = ['maximus']
+handler.tags = ['tamas']
 handler.command = /^(gamemenu|gamehelp)$/i
 handler.register = true;
 

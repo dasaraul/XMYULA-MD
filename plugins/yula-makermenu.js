@@ -210,7 +210,7 @@ conn.sendMessage(m.chat, {
   }
 }
 handler.help = ['makermenu']
-handler.tags = ['maximus']
+handler.tags = ['tamas']
 handler.command = /^(makermenu|makerhelp)$/i
 handler.register = true;
 

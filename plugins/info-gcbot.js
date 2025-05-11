@@ -2,12 +2,12 @@ import fetch from 'node-fetch'
 
 let handler = async (m, { conn, usedPrefix, command }) => {
 	try {
-   let maximus = `
+   let tamas = `
 -= *GROUP BOT WHATSAPP* =-
 
 https://chat.whatsapp.com/FJRtTzRKxP8A2wT6fcCW3s
 `
-    await conn.reply(m.chat, maximus, m)
+    await conn.reply(m.chat, tamas, m)
 	} catch (e) {
 		console.log(e)
 		throw `Fitur Error.`

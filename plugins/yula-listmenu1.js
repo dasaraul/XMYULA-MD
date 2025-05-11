@@ -68,7 +68,7 @@ const defaultMenu = {
   header: '\`— %category\`',
   body: '•  %cmd',
   footer: '',
-  after: `Powered By Maximus © 2019 - 2024`,
+  after: `Powered By tamas © 2019 - 2024`,
 }
 
 //"https://github.com/XM4ZE/DATABASE/raw/master/wallpaper/KARA.mp3?raw=true",."https://github.com/Neder11ndeu/Music2/blob/main/Yula%20intro.mp3?raw=true"
@@ -251,7 +251,7 @@ conn.sendMessage(m.chat, {
   }
 }
 handler.help = ['allmenu']
-handler.tags = ['maximus']
+handler.tags = ['tamas']
 handler.command = /^(allmenu)$/i
 handler.register = true;
 

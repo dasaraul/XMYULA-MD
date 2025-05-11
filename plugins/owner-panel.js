@@ -117,7 +117,7 @@ CREATED AT: ${user.created_at}
 *Note:* Cara membuat auto backup Script:
 https://youtu.be/_dtkOQ86_5U
 
-Jika sudah memasang auto backup. Kamu bisa hubungi admin Maximus untuk mendapatkan auto backup via WhatsApp
+Jika sudah memasang auto backup. Kamu bisa hubungi admin tamas untuk mendapatkan auto backup via WhatsApp
 
 *GROUP:* ${linkgc} ( Harap Join )`,
 				}, {})

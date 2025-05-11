@@ -37,7 +37,7 @@ global.info = {
   nomorbot: '62882257504889',
   nomorown: '6281283516246',
   namebot: 'Assisten YuLa',
-  nameown: 'Maximus Store',
+  nameown: 'tamas Store',
   channel: '120363241570452835@newsletter',
   namechannel: 'XM4ZE | Whatsapp Bots'
 }

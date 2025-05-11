@@ -214,7 +214,7 @@ conn.sendMessage(m.chat, {
   }
 }
 handler.help = ['rpgmenu']
-handler.tags = ['maximus']
+handler.tags = ['tamas']
 handler.command = /^(rpgmenu|rpghelp)$/i
 handler.register = true;
 

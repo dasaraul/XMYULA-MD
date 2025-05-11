@@ -210,7 +210,7 @@ conn.sendMessage(m.chat, {
   }
 }
 handler.help = ['mainmenu']
-handler.tags = ['maximus']
+handler.tags = ['tamas']
 handler.command = /^(mainmenu|mainhelp)$/i
 handler.register = true;
 

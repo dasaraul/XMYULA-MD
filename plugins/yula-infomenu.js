@@ -211,7 +211,7 @@ conn.sendMessage(m.chat, {
 }
 
 handler.help = ['infomenu']
-handler.tags = ['maximus']
+handler.tags = ['tamas']
 handler.command = /^(infomenu|infohelp)$/i
 handler.register = true;
 

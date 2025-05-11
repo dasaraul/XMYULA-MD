@@ -33,7 +33,7 @@ const defaultMenu = {
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command}) => {
 let tags = {
-'maximus': 'Simple Menu',
+'tamas': 'Simple Menu',
 'digiflazz': 'Topup Menu',
 'store': 'Store Menu',
 'genshin': 'Genshin Menu',

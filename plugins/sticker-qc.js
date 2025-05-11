@@ -17,7 +17,7 @@ let handler = async (m, { conn, text, usedPrefix, command, isOwner }) => {
             let img = await q.download()
             let decodedBuffer = await sharp(img).toFormat('png').toBuffer();
             let url = await uploadFile(decodedBuffer)
-            let maximus = txt ? txt : '';
+            let tamas = txt ? txt : '';
             let req = await fakechatImg(url, txt, q.name, avatar)
             let stiker = await createSticker(req, false, stickpack, stickauth)
             conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
