@@ -52,7 +52,7 @@ global.mail = 'tam@jawanich.my.id'
 global.gcbot = 'https://whatsapp.com/channel/0029VbAV8INCRs1hw2w0pK0d'
 global.wait = '*Starting Processing . . .*'
 global.eror = '*Failed to process . . .*\n\nLapor Owner dengan menulis \`.lapor\`\nReport Owner by writing \`.report\`'
-global.qris = 'qris.jpg'
+global.qris = 'https://github.com/dasaraul/XMYULA-MD/blob/master/qris.jpg?raw=true'
 global.pricelist = '*Limit kamu habis. Kamu bisa order akses premium dengan menulis* \`.order\`'
 global.thumvid = 'https://github.com/XM4ZE/DATABASE/raw/refs/heads/master/wallpaper/VID-20250116-WA0207.mp4'
 // 'https://github.com/XM4ZE/DATABASE/raw/refs/heads/master/wallpaper/mommy.mp4' // Allmenu Video thumbnail
