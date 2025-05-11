@@ -66,7 +66,7 @@ let handler = async(m, { conn, text, usedPrefix, command}) => {
     if (m.chat.includes('@g.us')) {
     conn.reply(m.chat, '✔️ *PESANANMU TELAH DI BUAT*\n\nSaya telah mengirim pembayarannya melalu private chat silahkan di baca dan ikuti tahap-tahap pembayaran. Terimakasih', m)
     }
-    conn.sendMessage("6281283516246@s.whatsapp.net", { text: `@${m.sender.split('@')[0]} Sedang dalam pembayaran nominal ${orderID}`, contextInfo: { mentionedJid: [m.sender] }})
+    conn.sendMessage("6282210819939@s.whatsapp.net", { text: `@${m.sender.split('@')[0]} Sedang dalam pembayaran nominal ${orderID}`, contextInfo: { mentionedJid: [m.sender] }})
 }
 handler.help = ['sewa', 'order']
 handler.tags = ['info']
