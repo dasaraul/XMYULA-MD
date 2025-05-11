@@ -1013,7 +1013,7 @@ export async function handler(chatUpdate) {
 			if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
 			if (settings) {
 				if (!('self' in settings)) settings.self = false
-				if (!('autoread' in settings)) settings.autoread = true
+				if (!('autoread' in settings)) settings.autoread = false
 				if (!('composing' in settings)) settings.composing = false
 				if (!('restrict' in settings)) settings.restrict = true
 				if (!('autorestart' in settings)) settings.autorestart = true
@@ -1025,7 +1025,7 @@ export async function handler(chatUpdate) {
 				if (!('cleartmp' in settings)) settings.cleartmp = false
 				if (!isNumber(settings.lastcleartmp)) settings.lastcleartmp = 0
 				if (!isNumber(settings.status)) settings.status = 0
-				if (!('anticall' in settings)) settings.anticall = true
+				if (!('anticall' in settings)) settings.anticall = false
 				if (!('digiflazz' in settings)) settings.digiflazz = false
 			} else global.db.data.settings[this.user.jid] = {
 				self: false,

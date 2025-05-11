@@ -343,7 +343,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
                     throw false
                 }
             }
-            bot.anticall = isFalse
+            bot.anticall = isEnable
             break
         case 'whitelistmycontacts':
             if (!isOwner) {
@@ -382,7 +382,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
                 global.dfail('rowner', m, conn)
                 throw false
             }
-            bot.autoread = isFalse
+            bot.autoread = isEnable
             break
         case 'pconly':
             isAll = true
