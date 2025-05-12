@@ -3,11 +3,11 @@ import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 
 /*============== GLOBAL APIKEY ==============*/
-global.btc = 'yw8NJjHo'
+global.btc = 'kontol'
 
 /*============== NOMOR ==============*/
 global.info = {
-	nomorbot: '6285184550704',
+	nomorbot: '66832730196',
 	nomorown: '6282210819939',
 	namebot: 'Tamaengs Bot',
 	nameown: 'Tamaengs',
@@ -17,7 +17,7 @@ global.info = {
 
 /*============== OWNER ==============*/
 global.owner = [global.info.nomorown, '6282210819939']
-global.xmaze = [global.info.nomorown, '6282210819939']
+global.xmaze = [global.info.nomorown, '66832730196']
 global.mods = []
 global.prems = []
 
