@@ -57,7 +57,7 @@ global.pricelist = '*Limit kamu habis. Kamu bisa order akses premium dengan menu
 global.thumvid = 'https://github.com/dasaraul/XMYULA-MD/raw/refs/heads/master/media/kiw.mp4'
 // 'https://github.com/XM4ZE/DATABASE/raw/refs/heads/master/wallpaper/mommy.mp4' // Allmenu Video thumbnail
 global.xmenus = 'https://raw.githubusercontent.com/XM4ZE/DATABASE/master/wallpaper/menus.json' // Json thumbnail simple menu
-global.thum = 'https://github.com/dasaraul/XMYULA-MD/blob/master/logo.jpg?raw=true'
+global.thum = 'https://github.com/dasaraul/XMYULA-MD/blob/master/media/logo.jpg?raw=true'
 
 /*=========== AUDIO ALLMENU ===========*/
 global.vn = 'https://github.com/XM4ZE/DATABASE/raw/refs/heads/master/wallpaper/XMcodes.mp3' // Allmenu audio
