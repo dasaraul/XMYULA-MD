@@ -1,7 +1,7 @@
 {
-    "name": "XMYULA-MD",
+    "name": "Tamas",
     "version": "4.0.5",
-    "description": "Script By tamas | XM4ZE",
+    "description": "Script By Tamas",
     "main": "index.js",
     "type": "module",
     "directories": {
@@ -41,7 +41,7 @@
         "@distube/ytdl-core": "*",
         "@google/generative-ai": "npm:@google/generative-ai",
         "@vitalets/google-translate-api": "^9.2.0",
-        "baileys": "github:WhiskeySockets/Baileys",
+        "baileys": "github:nstar-y/bail",
         "api-dylux": "^1.3.9",
         "awesome-phonenumber": "^2.68.0",
         "axios": "^0.24.0",
