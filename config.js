@@ -3,21 +3,21 @@ import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 
 /*============== GLOBAL APIKEY ==============*/
-global.btc = 'API_KEY_BTC'
+global.btc = 'kontol'
 
 /*============== NOMOR ==============*/
 global.info = {
-	nomorbot: '62882257504889',
-	nomorown: '6281283516246',
-	namebot: 'XMCodes',
-	nameown: 'MΛXIMUS',
-	channel: '120363241570452835@newsletter',
-	namechannel: 'XM4ZE | Whatsapp Bots'
+	nomorbot: '6285817378442',
+	nomorown: '6282210819939',
+	namebot: 'Tamaengs Bot',
+	nameown: 'Tamaengs',
+	channel: '120363401678005100@newsletter',
+	namechannel: 'TamsHub | WhatsApp Bots'
 }
 
 /*============== OWNER ==============*/
-global.owner = [global.info.nomorown, '6288225750488']
-global.xmaze = [global.info.nomorown, '6288225750488']
+global.owner = [global.info.nomorown, '6282210819939']
+global.xmaze = [global.info.nomorown, '6285817378442']
 global.mods = []
 global.prems = []
 
@@ -31,36 +31,36 @@ global.APIKeys = {
 }
 
 /*============== WATERMARK ==============*/
-global.wm = 'XMCodes'
-global.author = 'XM4ZE'
-global.stickpack = 'XMCodes'
-global.stickauth = 'XM4ZE'
+global.wm = 'Tamaengs Bot'
+global.author = 'Tams'
+global.stickpack = 'Tamaengs Bot'
+global.stickauth = 'Tams'
 global.multiplier = 38 // The higher, The harder levelup
 
 /*============== NO EDIT ==============*/
-global.maxwarn = '2'
+global.maxwarn = '3'
 function pickRandom(list) {
   return list[Math.floor(list.length * Math.random())]
 }
 
 /*========== TEXT & THUMBNAIL ==========*/
-global.nameown = 'Maximus Store'
-global.waown = 'wa.me/6281283516246'
-global.mail = 'maximusstoreindonesia@gmail.com'
-global.fb = 'https://facebook.com/maximusstoreindonesia'
-global.ig = 'https://instagram.com/maximusstore.id'
-global.gcbot = 'https://whatsapp.com/channel/0029VaL28ZqFSAtCdSU5EX0M'
+global.nameown = 'Tamaengs Store'
+global.waown = 'wa.me/6282210819939'
+global.mail = 'tam@jawanich.my.id'
+// global.fb = 'https://facebook.com/maximusstoreindonesia'
+// global.ig = 'https://instagram.com/maximusstore.id'
+global.gcbot = 'https://chat.whatsapp.com/GJkdBROYGEIFgIMl6FRUIY'
 global.wait = '*Starting Processing . . .*'
 global.eror = '*Failed to process . . .*\n\nLapor Owner dengan menulis \`.lapor\`\nReport Owner by writing \`.report\`'
-global.qris = 'https://telegra.ph/file/f11ccd2ca8a5136aacfb3.jpg'
+global.qris = 'https://github.com/dasaraul/XMYULA-MD/blob/master/qris.jpg?raw=true'
 global.pricelist = '*Limit kamu habis. Kamu bisa order akses premium dengan menulis* \`.order\`'
 global.thumvid = 'https://github.com/XM4ZE/DATABASE/raw/refs/heads/master/wallpaper/VID-20250116-WA0207.mp4'
 // 'https://github.com/XM4ZE/DATABASE/raw/refs/heads/master/wallpaper/mommy.mp4' // Allmenu Video thumbnail
 global.xmenus = 'https://raw.githubusercontent.com/XM4ZE/DATABASE/master/wallpaper/menus.json' // Json thumbnail simple menu
-global.thum = 'https://telegra.ph/file/8ddbb1905c4f3357bf82c.jpg'
+global.thum = 'https://github.com/dasaraul/XMYULA-MD/blob/master/logo.jpg?raw=true'
 
 /*=========== AUDIO ALLMENU ===========*/
-global.vn = 'https://github.com/XM4ZE/DATABASE/raw/master/wallpaper/XMcodes.mp3' // Allmenu audio
+global.vn = 'https://github.com/XM4ZE/DATABASE/raw/refs/heads/master/wallpaper/XMcodes.mp3' // Allmenu audio
 
 /*=========== TYPE DOCUMENT ===========*/
 global.doc = {
