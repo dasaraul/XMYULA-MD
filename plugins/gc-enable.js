@@ -1,5 +1,6 @@
 import moment from 'moment-timezone'
 import fs from 'fs'
+
 let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isROwner }) => {
     let isEnable = /true|enable|(turn)?on|1/i.test(command)
     let chat = global.db.data.chats[m.chat]
@@ -7,51 +8,56 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     let bot = global.db.data.settings[conn.user.jid] || {}
     let name = `${user.registered ? user.name : conn.getName(m.sender)}`
     let type = (args[0] || '').toLowerCase()
-    let isAll = false,
-    isUser = false
+    let isAll = false, isUser = false
+    
     let caption = `
-\`\`\`A D M I N  F E A T U R E\`\`\`
-*• antilinkkick*
-*• antilinkdelete*
-*• antilinkwa* 
-*• antitagsw*
-*• antiporn* 
-*• antiacara* 
-*• antifile* 
-*• antiaudio* 
-*• antifoto* 
-*• antipolling* 
-*• antivideo* 
-*• antitoxic* 
-*• antibadword*
-*• antidelete*
-*• antiviewonce* 
-*• antisticker* 
-*• antistickerpack*
-*• antivirtex*
-*• simi*
-*• teks* 
-*• restrict* 
-*• game*
-*• allfitur*
-*• rpg* 
-*• nsfw* 
-*• welcome* 
-*• autolevelup* 
-
-\`\`\`O W N E R  F E A T U R E\`\`\`
-*• autobackup*
-*• autocleartmp*
-*• autoresetlimit*
-*• autoread*
-*• composing*
-*• gconly*
-*• pconly*
-*• public*
-*• self*
-*• swonly*
-*• anticall*
+╭──「 *PENGATURAN GRUP* 」───
+│
+├ • antilinkkick
+├ • antilinkdelete
+├ • antilinkwa 
+├ • antitagsw
+├ • antiporn 
+├ • antiacara 
+├ • antifile 
+├ • antiaudio 
+├ • antifoto 
+├ • antipolling 
+├ • antivideo 
+├ • antitoxic 
+├ • antibadword
+├ • antidelete
+├ • antiviewonce 
+├ • antisticker 
+├ • antistickerpack 
+├ • antivirtex
+├ • simi
+├ • teks 
+├ • restrict 
+├ • game
+├ • allfitur
+├ • rpg 
+├ • nsfw 
+├ • welcome 
+├ • autolevelup 
+│
+├──「 *PENGATURAN BOT* 」───
+│
+├ • autobackup
+├ • autocleartmp
+├ • autoresetlimit
+├ • autoread
+├ • composing
+├ • gconly
+├ • pconly
+├ • public
+├ • self
+├ • swonly
+├ • anticall
+├ • menu2
+╰───────────────────────
 `.trim()
+
     switch (type) {
         case 'welcome':
             if (m.isGroup) {
@@ -62,6 +68,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.welcome = isEnable
             break
+            
         case 'autolevelup':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -71,15 +78,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.autolevelup = isEnable
             break
-        case 'adminonly':
-            if (m.isGroup) {
-                if (!(isAdmin || isOwner)) {
-                    global.dfail('admin', m, conn)
-                    throw false
-                }
-            }
-            chat.adminonly = isEnable
-            break
+            
         case 'detect':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -89,6 +88,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.detect = isEnable
             break
+            
         case 'delete':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -98,6 +98,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.delete = isEnable
             break
+            
         case 'antiviewonce':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -107,6 +108,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.viewonce = isEnable
             break
+            
         case 'antidelete':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -116,15 +118,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.delete = !isEnable
             break
-        case 'antispamlink':
-            if (m.isGroup) {
-                if (!(isAdmin || isOwner)) {
-                    global.dfail('admin', m, conn)
-                    throw false
-                }
-            }
-            chat.antispam = isEnable
-            break
+            
         case 'teks':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -134,6 +128,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.teks = isEnable
             break
+            
         case 'antitagsw':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -143,6 +138,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiTagSW = isEnable
             break
+            
         case 'public':
         case 'self':
             isAll = true
@@ -152,6 +148,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             global.opts['self'] = !isEnable
             break
+            
         case 'antilinkkick':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -161,6 +158,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiLinkkick = isEnable
             break
+            
         case 'antilinkdelete':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -170,6 +168,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiLinkdelete = isEnable
             break
+            
         case 'antilinkwa':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -179,6 +178,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiLinkWa = isEnable
             break
+            
         case 'antiporn':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -188,6 +188,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiPorn = isEnable
             break
+            
         case 'antifoto':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -197,6 +198,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiFoto = isEnable
             break
+            
         case 'antiaudio':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -206,6 +208,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiAudio = isEnable
             break
+            
         case 'antiacara':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -215,6 +218,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiAcara = isEnable
             break
+            
         case 'antifile':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -224,6 +228,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiDoc = isEnable
             break
+            
         case 'antivideo':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -233,6 +238,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiVideo = isEnable
             break
+            
         case 'antipolling':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -242,6 +248,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiPolling = isEnable
             break
+            
         case 'nsfw':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -251,6 +258,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.nsfw = isEnable
             break
+            
         case 'rpg':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -260,6 +268,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.rpg = isEnable
             break
+            
         case 'allfitur':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -269,6 +278,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.xmaze = isEnable
             break
+            
         case 'antivirtex':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -278,6 +288,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiVirtex = isEnable
             break
+            
         case 'simi':
             if (!(isAdmin || isOwner)) {
                 global.dfail('admin', m, conn)
@@ -285,6 +296,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.simi = isEnable
             break
+            
         case 'composing':
             if (!isROwner) {
                 global.dfail('rowner', m, conn)
@@ -292,6 +304,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             bot.composing = isEnable
             break
+            
         case 'antisticker':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -301,6 +314,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiSticker = isEnable
             break
+            
         case 'antistickerpack':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -310,6 +324,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiStickerPack = isEnable
             break
+            
         case 'antibadword':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -319,6 +334,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiBadword = isEnable
             break
+            
         case 'antitoxic':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -328,6 +344,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.antiToxic = isEnable
             break
+            
         case 'restrict':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -337,6 +354,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.pembatasan = isEnable
             break
+            
         case 'game':
             if (m.isGroup) {
                 if (!(isAdmin || isOwner)) {
@@ -346,22 +364,23 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             chat.game = isEnable
             break
+            
         case 'anticall':
-            if (m.isGroup) {
-                if (!(isAdmin || isOwner)) {
-                    global.dfail('admin', m, conn)
-                    throw false
-                }
-            }
-            bot.anticall = isEnable
-            break
-        case 'whitelistmycontacts':
             if (!isOwner) {
                 global.dfail('owner', m, conn)
                 throw false
             }
-            conn.callWhitelistMode = isEnable
+            bot.anticall = isEnable
             break
+            
+        case 'menu2':
+            if (!isOwner) {
+                global.dfail('owner', m, conn)
+                throw false
+            }
+            bot.thumbnail = isEnable
+            break
+            
         case 'autobackup':
             isAll = true
             if (!isOwner) {
@@ -370,6 +389,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             bot.backup = isEnable
             break
+            
         case 'autocleartmp':
             isAll = true
             if (!isOwner) {
@@ -378,6 +398,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             bot.cleartmp = isEnable
             break
+            
         case 'autoresetlimit':
             isAll = true
             if (!isOwner) {
@@ -386,6 +407,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             bot.resetlimit = isEnable
             break
+            
         case 'autoread':
             isAll = true
             if (!isROwner) {
@@ -394,6 +416,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             bot.autoread = isEnable
             break
+            
         case 'pconly':
             isAll = true
             if (!isROwner) {
@@ -402,6 +425,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             global.opts['pconly'] = isEnable
             break
+            
         case 'gconly':
             isAll = true
             if (!isROwner) {
@@ -410,6 +434,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             global.opts['gconly'] = isEnable
             break
+            
         case 'swonly':
             isAll = true
             if (!isROwner) {
@@ -418,38 +443,29 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
             }
             global.opts['swonly'] = isEnable
             break
+            
         default:
             return m.reply(caption)
     }
-    await m.reply(`${type} berhasil ${isEnable ? 'dinyalakan': 'dimatikan'} untuk ${isAll ? 'bot ini': 'chat ini'} !`)
+    
+    await m.reply(`✅ *${type.toUpperCase()}* telah ${isEnable ? 'di *Hidupkan*' : 'di *Matikan*'} ${isAll ? 'untuk bot ini' : 'dalam obrolan ini'}!`)
 }
-handler.help = ['enable <command>']
-handler.tags = ['group']
-handler.command = /^((en|dis)able|setting|settings|(tru|fals)e|(turn)?o(n|ff))$/i
+
+handler.help = ['enable <command>', 'disable <command>']
+handler.tags = ['group', 'owner']
+handler.command = /^((en|dis)able|(tru|fals)e|(turn)?o(n|ff)|settings?)$/i
 
 export default handler
 
 function wish() {
     let wishloc = ''
     const time = moment.tz('Asia/Jakarta').format('HH')
-    wishloc = ('Hi')
-    if (time >= 0) {
-        wishloc = ('Selamat Malam')
-    }
-    if (time >= 4) {
-        wishloc = ('Selamat Pagi')
-    }
-    if (time >= 11) {
-        wishloc = ('Selamat Siang')
-    }
-    if (time >= 15) {
-        wishloc = ('️Selamat Sore')
-    }
-    if (time >= 18) {
-        wishloc = ('Selamat Malam')
-    }
-    if (time >= 23) {
-        wishloc = ('Selamat Malam')
-    }
+    
+    if (time >= 0 && time < 4) wishloc = 'Selamat Malam'
+    else if (time >= 4 && time < 11) wishloc = 'Selamat Pagi'
+    else if (time >= 11 && time < 15) wishloc = 'Selamat Siang'
+    else if (time >= 15 && time < 18) wishloc = 'Selamat Sore'
+    else wishloc = 'Selamat Malam'
+    
     return wishloc
 }
