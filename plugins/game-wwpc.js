@@ -54,7 +54,7 @@ let handler = async (m, { conn, command, usedPrefix, args }) => {
     if (!target || target.length < 1 || target.split('').length > 2) 
         return m.reply(`Masukan nomor player \nContoh : \n${usedPrefix + command} kill 1`)
     if (isNaN(target)) 
-        return m.reply("Gunakan hanya nomor")
+        return m.reply("Gunakan hanya nomor");
     let byId = getPlayerById2(sender, parseInt(target), ww)
     if (byId.db.isdead === true) 
         return m.reply("Player sudah mati")
@@ -101,4 +101,5 @@ let handler = async (m, { conn, command, usedPrefix, args }) => {
 }
 handler.command = /^((ww|werewolf)pc)$/i
 handler.private = true
-export default handler
+
+export default handler;
