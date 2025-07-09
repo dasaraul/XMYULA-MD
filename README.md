@@ -25,7 +25,7 @@ npm start
 | Sticker Menu   | Tools Menu     |                |
 
 ## 💳 Benefits of Paid Scripts
-| Version       | VIP Plugins | Simple code | Payment Gateway | Price     |
+| Version       | VIP Plugins | Simple code | Full Support | Price     |
 |---------------|------------|-------------|-----------------|-----------|
 | Free          | ❌         | ❌          | ❌              | Click ⭐ Repo |
 | Paid          | ✔️         | ✔️          | ✔️              | 150K IDR  |
