@@ -1,8 +1,8 @@
-import Jimp from 'jimp'
+import jimp from "jimp";
 
 const resize = async (image, width, height) => {
-    const read = await Jimp.read(image);
-    const data = await read.resize(width, height).getBufferAsync(Jimp.MIME_JPEG);
+    const read = await jimp.read(image);
+    const data = await read.resize(width, height).getBufferAsync(jimp.MIME_JPEG);
     return data;
 };
 
@@ -122,6 +122,14 @@ let handler = async (m, {
             m.chat, {
                 text: text.trim(),
                 contextInfo: {
+                    externalAdReply: {
+                        title: "W E R E W O L F",
+                        mediaType: 1,
+                        renderLargerThumbnail: true,
+                        thumbnail: await resize(thumb, 300, 175),
+                        sourceUrl: "",
+                        mediaUrl: thumb,
+                    },
                     mentionedJid: player,
                 },
             }, {
@@ -156,7 +164,7 @@ let handler = async (m, {
         if (ww[chat].status === true)
             return m.reply("Sesi permainan telah dimulai");
         if (ww[chat].owner !== sender)
-            return conn.sendMessage(m.chat, { text: `Hanya @${ww[chat].owner.split("@")[0]} yang dapat memulai permainan`, contextInfo: { mentionedJid: [ww[chat].owner] }}, { quoted: m })
+            return conn.sendMessage(m.chat, { text: `Hanya @${ww[chat].owner.split("@")[0]} yang dapat memulai permainan`, contextInfo: { mentionedJid: [ww[chat].owner] }}, { quoted: m });
         let list1 = "";
         let list2 = "";
         let player = [];
@@ -258,6 +266,14 @@ let handler = async (m, {
         await conn.sendMessage(m.chat, {
             text: "*⌂ W E R E W O L F - G A M E*\n\nGame telah dimulai, para player akan memerankan perannya masing masing, silahkan cek chat pribadi untuk melihat role kalian. Berhati-hatilah para warga, mungkin malam ini adalah malah terakhir untukmu",
             contextInfo: {
+                externalAdReply: {
+                    title: "W E R E W O L F",
+                    mediaType: 1,
+                    renderLargerThumbnail: true,
+                    thumbnail: await resize(thumb, 300, 175),
+                    sourceUrl: "",
+                    mediaUrl: thumb,
+                },
                 mentionedJid: player,
             },
         });
@@ -290,12 +306,12 @@ let handler = async (m, {
         if (!ww[chat]) return m.reply("Tidak ada sesi permainan");
         if (playerOnRoom(sender, chat, ww) === false)
             return m.reply("Kamu tidak dalam sesi permainan");
-        if (ww[chat].status === true)
+        if (ww[chat].status === true) {
             return m.reply("Permainan sudah dimulai, kamu tidak bisa keluar");
-        m.reply(`@${sender.split("@")[0]} Keluar dari permainan`, {
-            withTag: true,
-        });
-        playerExit(chat, sender, ww);
+            } else {
+            conn.sendMessage(m.chat, { text: `@${sender.split("@")[0]} Keluar dari permainan`, contextInfo: { mentionedJid: [sender] }}, { quoted: m });
+            playerExit(chat, sender, ww);
+        }
     } else if (value === "delete") {
         if (!ww[chat]) return m.reply("Tidak ada sesi permainan");
         if (ww[chat].owner !== sender)
@@ -330,6 +346,14 @@ let handler = async (m, {
             m.chat, {
                 text: text,
                 contextInfo: {
+                    externalAdReply: {
+                        title: "W E R E W O L F",
+                        mediaType: 1,
+                        renderLargerThumbnail: true,
+                        thumbnail: await resize(thumb, 300, 175),
+                        sourceUrl: "",
+                        mediaUrl: thumb,
+                    },
                     mentionedJid: player,
                 },
             }, {
@@ -345,28 +369,28 @@ let handler = async (m, {
         text += ` • ww delete\n`;
         text += ` • ww player\n`;
         text += `\nPermainan ini dapat dimainkan oleh 5 sampai 15 orang.`;
-//        conn.sendMessage(
-//            m.chat, {
-//                text: text.trim(),
-//                contextInfo: {
-//                    externalAdReply: {
-//                        title: "W E R E W O L F",
-//                        mediaType: 1,
-//                        renderLargerThumbnail: true,
-//                        thumbnail: await resize(thumb, 300, 175),
-//                        sourceUrl: "",
-//                        mediaUrl: thumb,
-//                    },
-//                },
-//            }, {
-//                quoted: m
-//            }
-//        );
-        conn.sendFile(m.chat, thumb, null, text.trim(), null);
+        conn.sendMessage(
+            m.chat, {
+                text: text.trim(),
+                contextInfo: {
+                    externalAdReply: {
+                        title: "W E R E W O L F",
+                        mediaType: 1,
+                        renderLargerThumbnail: true,
+                        thumbnail: await resize(thumb, 300, 175),
+                        sourceUrl: "",
+                        mediaUrl: thumb,
+                    },
+                },
+            }, {
+                quoted: m
+            }
+        );
     }
 }
 handler.help = ['werewolf'];
 handler.tags = ['game'];
 handler.command = ['ww','werewolf'];
 handler.group = true;
-export default handler
+
+export default handler;

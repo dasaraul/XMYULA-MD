@@ -71,6 +71,8 @@ export async function handler(chatUpdate) {
 				if (!("registered" in user)) user.registered = false
 				if (!("role" in user)) user.role = "Beginner"
 		    	if (!("roleTopup" in user)) user.roleTopup = "bronze"
+		    	if (!isNumber(user.roleLimit)) user.roleLimit = 0
+		    	if (!isNumber(user.saldoTopup)) user.saldoTopup = 0
 				if (!("sewa" in user)) user.sewa = false
 				if (!("skill" in user)) user.skill = ""
 				if (!("title" in user)) user.title = ""
@@ -350,8 +352,7 @@ export async function handler(chatUpdate) {
 				if (!isNumber(user.lelebakar)) user.lelebakar = 0
 				if (!isNumber(user.leleg)) user.leleg = 0
 				if (!isNumber(user.level)) user.level = 0
-				if (!isNumber(user.limit)) user.limit = 3
-				if (!isNumber(user.limitjoinfree)) user.limitjoinfree = 0
+				if (!isNumber(user.limit)) user.limit = 20
 				if (!isNumber(user.lion)) user.lion = 0
 				if (!isNumber(user.lionexp)) user.lionexp = 0
 				if (!isNumber(user.lionlastfeed)) user.lionlastfeed = 0
@@ -490,8 +491,6 @@ export async function handler(chatUpdate) {
 				if (!user.premium) user.premium = false
 				if (!user.premium) user.premiumTime = 0
 				if (!user.rtrofi) user.rtrofi = "Perunggu"
-				if (!isNumber(user.limitjoin))
-					user.limitjoin = 0
 			} else
 				global.db.data.users[m.sender] = {
 					afk: -1,
@@ -744,8 +743,7 @@ export async function handler(chatUpdate) {
 					lelebakar: 0,
 					leleg: 0,
 					level: 0,
-					limit: 3,
-					limitjoinfree: 0,
+					limit: 20,
 					lion: 0,
 					lionexp: 0,
 					lionlastfeed: 0,
@@ -819,6 +817,7 @@ export async function handler(chatUpdate) {
 					roket: 0,
 					role: "Newbie ㋡",
 					roleTopup: "bronze",
+					roleLimit: 0,
 					roti: 0,
 					rtrofi: "perunggu",
 					rubah: 0,
@@ -885,8 +884,7 @@ export async function handler(chatUpdate) {
 					wolfexp: 0,
 					wolflastfeed: 0,
 					wood: 0,
-					wortel: 0,
-					limitjoin: 0,
+					wortel: 0
 				}
 			let chat = global.db.data.chats[m.chat]
 			if (typeof chat !== 'object')
@@ -932,7 +930,7 @@ export async function handler(chatUpdate) {
 					chat.pembatasan = false
 				if (!('antiSticker' in chat))
 					chat.antiSticker = false
-                if (!('antiStickerPack' in chat))
+			    if (!('antiStickerPack' in chat))
 					chat.antiStickerPack = false
 				if (!('antiLinkWa' in chat))
 					chat.antiLinkWa = false
@@ -1030,6 +1028,7 @@ export async function handler(chatUpdate) {
 				if (!isNumber(settings.status)) settings.status = 0
 				if (!('anticall' in settings)) settings.anticall = true
 				if (!('digiflazz' in settings)) settings.digiflazz = false
+				if (!('thumbnail' in settings)) settings.thumbnail = false
 			} else global.db.data.settings[this.user.jid] = {
 				self: false,
 				autoread: true,
@@ -1046,6 +1045,7 @@ export async function handler(chatUpdate) {
 				status: 0,
 				anticall: true,
 				digiflazz: false,
+				thumbnail: false,
 			}
 		} catch (e) {
 			console.error(e)
@@ -1275,11 +1275,11 @@ export async function handler(chatUpdate) {
 					this.reply(m.chat, `[💬] Umurmu harus diatas ${plugin.age} Tahun untuk menggunakan fitur ini...`, m)
 					continue
 				}
-//				let isCmddd = /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(m.text)
-//				if (isCmddd && !isPrems && !m.isGroup && !conn.werewolf && !conn.orderkouta) {
+				let isCmddd = /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(m.text)
+				if (isCmddd && !isPrems && !m.isGroup && !conn.werewolf && !conn.orderkouta) {
 //			       this.sendMessage(m.chat, { text: `⚠️ Menggunakan bot dalam obrolan pribadi hanya untuk pengguna premium.\n\n*PREMIUM USER PRICE LIST*\n\n*3 Day premium*\n- OrderID: 3\n- Price: Rp. 5.000 IDR\n\n*7 Day premium*\n- OrderID: 7\n- Price: Rp. 10.000 IDR\n\n*30 Day premium*\n- OrderID: 30\n- Price: Rp. 15.000 IDR\n\n*60 Day premium*\n- OrderID: 60\n- Price: Rp. 30.000 IDR\n\n*90 Day premium*\n- OrderID: 90\n- Price: Rp. 40.000 IDR\n\n*365 Day premium*\n- OrderID: 365\n- Price: Rp. 115.000 IDR\n\nTolong ikuti cara pembayaran ini.\n\nSilahkan tulis seperti ini : *.order <OrderID>*\nContoh: *.order 30*\n\nJika anda terlalu bodoh. anda bisa langsung menghubungi nomor owner kami melalui link di bawah ini:\nwa.me/${global.info.nomorown}\n\nThank you for using our bot #MaximusStore`, contextInfo: { mentionedJid: [m.sender], externalAdReply: { title: '', body: '', thumbnailUrl: "https://telegra.ph/file/0b32e0a0bb3b81fef9838.jpg", sourceUrl: "", mediaType: 1, renderLargerThumbnail: true }} })
-//			    	continue
-//				}
+			    	continue
+				}
 				let extra = {
 					match,
 					usedPrefix,

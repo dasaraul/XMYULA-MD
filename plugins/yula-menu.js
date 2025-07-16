@@ -1,16 +1,18 @@
 import PhoneNumber from 'awesome-phonenumber'
 import { promises } from 'fs'
-import { getDevice } from 'baileys'
 import { join } from 'path'
 import fetch from 'node-fetch'
 import { xpRange } from '../lib/levelling.js'
 import moment from 'moment-timezone'
+import { getDevice } from 'baileys'
 import os from 'os'
 import axios from 'axios' 
 import fs from 'fs'
 import { toAudio } from '../lib/converter.js'
+
 let tags = {
   'main': 'Main Menu',
+  'digiflazz': 'Topup Menu',
   'jadibot': 'JadiBot Menu',
   'ai': 'Ai Menu',
   'genshin': 'Genshin Menu',
@@ -44,8 +46,8 @@ let tags = {
   'islamic': 'Islamic Menu',
   'info': 'Info Menu',
   'owner': 'Owner Menu', 
-  'digiflazz': 'Topup Menu',
 }
+
 const defaultMenu = {
   before: `Hallo %name!\nSaya adalah Bot Otomatis. Saya dapat membantu Anda mencari data, mendownload data, dan mengelola data dengan mudah dan efisien. Saya siap membantu Anda 24/7!
 
@@ -62,7 +64,6 @@ const defaultMenu = {
  •  *Version :* %version
  •  *Request :* %rtotalreg
  •  *Platform :* %platform
-
 %readmore
 `.trimStart(),
   header: '\`— %category\`',
@@ -71,17 +72,13 @@ const defaultMenu = {
   after: `Powered By Maximus © 2019 - 2024`,
 }
 
-//"https://github.com/XM4ZE/DATABASE/raw/master/wallpaper/KARA.mp3?raw=true",."https://github.com/Neder11ndeu/Music2/blob/main/Yula%20intro.mp3?raw=true"
-
-let handler = async (m, { conn, usedPrefix, __dirname }) => {
+let handler = async (m, { conn, usedPrefix, command, __dirname, text }) => {
   try {
-    //conn.sendMessage(m.chat, { react: { text: '🕐', key: m.key }})
     let wib = moment.tz('Asia/Jakarta').format('HH:mm:ss')
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
     let { exp, level, role } = global.db.data.users[m.sender]
     let { min, xp, max } = xpRange(level, global.multiplier)
     let tag = `@${m.sender.split`@`[0]}`
-    let image = elainajpg.getRandom()
     let user = global.db.data.users[m.sender]
     let limit = user.premiumTime >= 1 ? 'Unlimited' : user.limit
     let premium = global.db.data.users[m.sender].premiumTime
@@ -91,10 +88,6 @@ let handler = async (m, { conn, usedPrefix, __dirname }) => {
     let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let d = new Date(new Date + 3600000)
     let locale = 'id'
-    // d.getTimeZoneOffset()
-    // Offset -420 is 18.00
-    // Offset    0 is  0.00
-    // Offset  420 is  7.00
     let weton = ['Pahing', 'Pon', 'Wage', 'Kliwon', 'Legi'][Math.floor(d / 84600000) % 5]
     let week = d.toLocaleDateString(locale, { weekday: 'long' })
     let year = d.toLocaleDateString(locale, { year: 'numeric' })
@@ -148,11 +141,49 @@ let handler = async (m, { conn, usedPrefix, __dirname }) => {
     let body = conn.menu.body || defaultMenu.body
     let footer = conn.menu.footer || defaultMenu.footer
     let after = conn.menu.after || (conn.user.jid == global.conn.user.jid ? '' : `Powered by wa.me/${global.info.nomorown}\n`) + defaultMenu.after
-    let _text = [
-      before,
-      ...Object.keys(tags).map(tag => {
-        return header.replace(/%category/g, tags[tag]) + '\n' + [
-          ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
+    
+    // Handle menu type based on text input
+    let menuType = text ? text.toLowerCase() : ''
+    let menuText = []
+    
+    if (!menuType) {
+      // Show available tags when no argument is given
+      menuText = [
+        before,
+        `\`Daftar Menu Yang Tersedia:\`\n• \`\`\`${usedPrefix + command} all\`\`\`\n` +
+        Object.entries(tags).map(([tag]) => `• \`\`\`${usedPrefix + command} ${tag}\`\`\``).join('\n') +
+        `\n\n\`Contoh penggunaan: ${usedPrefix + command} sticker\``,
+        `\n` + after
+      ]
+    } else if (menuType === 'all') {
+      // Show all menus when 'all' is specified
+      menuText = [
+        before,
+        ...Object.keys(tags).map(tag => {
+          return header.replace(/%category/g, tags[tag]) + '\n' + [
+            ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
+              return menu.help.map(help => {
+                return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
+                  .replace(/%islimit/g, menu.limit ? '🅛' : '')
+                  .replace(/%isPremium/g, menu.premium ? '🅟' : '')
+                  .trim()
+              }).join('\n')
+            }),
+            footer
+          ].join('\n')
+        }),
+        after
+      ]
+    let response = await axios.get(vn, { responseType: 'arraybuffer' })
+    let media = Buffer.from(response.data, 'binary')
+    let audio = await toAudio(media, 'mp4')
+    conn.sendFile(m.chat, audio.data, 'audio.mp3', '', m, true, { mimetype: 'audio/mp4' })
+    } else if (tags[menuType]) {
+      // Show specific menu when valid tag is specified
+      menuText = [
+        before,
+        header.replace(/%category/g, tags[menuType]) + '\n' + [
+          ...help.filter(menu => menu.tags && menu.tags.includes(menuType) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
                 .replace(/%islimit/g, menu.limit ? '🅛' : '')
@@ -161,11 +192,20 @@ let handler = async (m, { conn, usedPrefix, __dirname }) => {
             }).join('\n')
           }),
           footer
-        ].join('\n')
-      }),
-      after
-    ].join('\n')
-    let text = typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ? _text : ''
+        ].join('\n'),
+        after
+      ]
+    } else {
+      // Show error message when invalid tag is specified
+      menuText = [
+        before,
+        `Menu "${text}" tidak ditemukan!!!.\n\n\`Daftar menu yang tersedia:\`\n• \`\`\`${usedPrefix + command} all\`\`\`\n` +
+        Object.entries(tags).map(([tag]) => `• \`\`\`${usedPrefix + command} ${tag}\`\`\``).join('\n'),
+        `\n` + after
+      ]
+    }
+    
+    let textToSend = menuText.join('\n')
     let replace = {
       '%': '%',
       p: usedPrefix, uptime, muptime,
@@ -181,78 +221,55 @@ let handler = async (m, { conn, usedPrefix, __dirname }) => {
       level, limit, name, weton, week, date, year, dateIslamic, time, totalreg, rtotalreg, role, prems, tag, status, wib, platform, mode, 
       readmore: readMore
     }
-    text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-let xm4ze = await( await fetch(xmenus)).json()
-let thum = xm4ze[Math.floor(Math.random() * xm4ze.length)]
-let response = await axios.get(vn, { responseType: 'arraybuffer' })
-let media = Buffer.from(response.data, 'binary')
-let audio = await toAudio(media, 'mp4')
-conn.sendFile(m.chat, audio.data, 'audio.mp3', '', m, true, { mimetype: 'audio/mp4' })
-/*conn.sendMessage(m.chat, { video: { url: "https://github.com/XM4ZE/DATABASE/raw/master/wallpaper/Vid_20240220_073653.mp4?raw=true" }, gifPlayback: true, gifAttribution: ~~(Math.random() * 2), caption: text, contextInfo: { mentionedJid: [m.sender], externalAdReply: { showAdAttribution: false, title: global.info.namebot + `© 2024`, body: 'Jangan Lupa Sewa', thumbnailUrl: 'https://telegra.ph/file/7689cc923faef69aa9772.jpg', mediaType: 1, sourceUrl: 'https://chat.whatsapp.com/LZCnnSQFPkF3C6zrDcH5n8', renderLargerThumbnail: false }}}, { quoted: m })
-let fkon = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: '0@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `${conn.getName(conn.user.jid)}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${conn.getName(conn.user.jid)}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
-conn.sendMessage(m.chat, { 
+    textToSend = textToSend.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
+    
+    let xm4ze = await( await fetch(xmenus)).json()
+    let thumb = xm4ze[Math.floor(Math.random() * xm4ze.length)]
+    let fkon = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: '0@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `${conn.getName(conn.user.jid)}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${conn.getName(conn.user.jid)}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
+
+if (!/all/.test(command) && await getDevice(m.key.id) == 'android') {
+  if (!db.data.settings[conn.user.jid].thumbnail) {
+    conn.sendMessage(m.chat, {
+      text: textToSend,
+      contextInfo: {
+        mentionedJid: [m.sender],
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: global.info.channel,
+          serverMessageId: null,
+          newsletterName: global.info.namechannel,
+        },
+        externalAdReply: { 
+          showAdAttribution: false, 
+          title: global.info.namebot + ` © ` + year, 
+          body: '', 
+          thumbnailUrl: global.thum ? thum : thumb, 
+          mediaType: 1, 
+          sourceUrl: gcbot,
+          renderLargerThumbnail: true 
+        }
+      },
+    }, {
+      quoted: m
+    });
+  } else {
+      conn.sendMessage(m.chat, { text: textToSend, contextInfo: { mentionedJid: [m.sender] }}, { quoted: m });
+  }
+} else await conn.sendMessage(m.chat, { 
           image: { 
-             url: "https://files.catbox.moe/73vjgq.png" 
+             url: "https://files.catbox.moe/morbwn.mp4" 
              }, 
              fileName: wm, 
-             caption: text, 
+             caption: textToSend, 
                  contextInfo: { 
-                 mentionedJid: [m.sender], 
-                     forwardedNewsletterMessageInfo: {
-                     newsletterJid: global.info.channel,
-                     serverMessageId: null,
-                     newsletterName: global.info.namechannel,
-                     },
-                     externalAdReply: { 
-                          showAdAttribution: false, 
-                          title: global.info.namebot + ` © 2024`, 
-                          body: 'Jangan Lupa Sewa', 
-                          thumbnailUrl: thum, 
-                          mediaType: 1, 
-                          sourceUrl: 'https://chat.whatsapp.com/LZCnnSQFPkF3C6zrDcH5n8', 
-                          renderLargerThumbnail: true 
-                     }
+                     mentionedJid: [m.sender] 
                  }
-          }, { quoted: fkon })*/
-
-let fkon = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: '0@s.whatsapp.net' } : {}) }, message: { contactMessage: { displayName: `${conn.getName(conn.user.jid)}`, vcard: `BEGIN:VCARD\nVERSION:3.0\nN:;a,;;;\nFN:${conn.getName(conn.user.jid)}\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}}
-
-conn.sendMessage(m.chat, {
-	video: {
-		url: 'https://files.catbox.moe/morbwn.mp4'
-	},
-	gifPlayback: true,
-	gifAttribution: false,
-	seconds: 120,
-	fileLength: 20,
-	caption: text,
-	contextInfo: {
-		mentionedJid: [m.sender],
-		forwardedNewsletterMessageInfo: {
-			newsletterJid: global.info.channel,
-			serverMessageId: null,
-			newsletterName: global.info.namechannel,
-		},
-		externalAdReply: { 
-                 showAdAttribution: true, 
-                 title: global.info.namebot + ` © ` + year, 
-                 body: '', 
-                 thumbnailUrl: thum, 
-                 mediaType: 1, 
-                 sourceUrl: gcbot,
-                 renderLargerThumbnail: true 
-        }
-	},
-}, {
-	quoted: fkon
-})
+          }, { quoted: m });
   } catch (e) {
     throw e
   }
-}
-handler.help = ['allmenu']
-handler.tags = ['maximus']
-handler.command = /^(allmenu)$/i
+};
+
+handler.command = /^(menu|help|perintah)$/i
 handler.register = true;
 
 export default handler;
@@ -277,7 +294,7 @@ function wish() {
     wishloc = ('️Selamat Sore')
   }
   if (time >= 18) {
-  	wishloc = ('Selamat Malam')
+    wishloc = ('Selamat Malam')
   }
   if (time >= 23) {
     wishloc = ('Selamat Malam')
